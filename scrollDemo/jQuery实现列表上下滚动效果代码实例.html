@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://127.0.0.1:8020/JQUERY/scroll.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>jQuery实现列表上下滚动效果代码实例</title>
+		<style>
+		li{
+			list-style: none;
+		}
+		h3{
+			color:red;
+			text-align: center;
+			font: bold 18px/1.5 "微软雅黑";
+		}
+		.prizes{
+			height: 60px;
+			width: 196px;
+			position: relative;
+			margin: 0 auto;
+		}
+		.prizes .prizesbox{
+			height: 45px;
+			width: 196px;
+			overflow: hidden;
+			margin-top: 5px;
+		}
+		.prizesbox ul{
+			-webkit-padding-start: 0;
+			margin-top: 0;
+		}
+		.prizes .prizesbox ul li {
+  font: normal 14px/22px "microsoft yahei";
+  color: #444444;
+  text-align: center;
+  margin-bottom: 20px;
+}	
+		</style>
+	</head>
+	<body>
+		<h3>每2秒滚动一次</h3>
+  <div class="prizes">
+    
+    <div class="prizesbox">
+      <ul style="margin-top: 0px;">
+        
+        
+        
+        
+      <li>
+          归去来兮辞
+          <br>下问征夫以前路，恨晨光之熹微。
+        </li><li>
+         归去来兮辞
+          <br>悟已往之不谏，知来者之可追
+        </li><li>
+          归去来兮辞
+          <br>实迷途其未远，觉今是而昨非
+        </li><li>
+          归去来兮辞
+          <br>舟遥遥以轻飏，风飘飘而吹衣
+        </li></ul>
+    </div>
+  </div>
+  <script src="./jQuery实现列表上下滚动效果代码实例_files/jquery-3.0.0.min.js"></script>
+  <script>
+  	$(function () {
+  setInterval(scrollPrize, 2000);
+  function scrollPrize() {
+    var $self = $('.prizesbox ul');
+    $self.animate({
+      'margin-top': "-60px"
+    }, 600, function () {
+      $self.css('margin-top', '0').find("li:lt(1)").appendTo($self);
+    })
+  }
+})
+  </script>
+	
+
+</body></html>
