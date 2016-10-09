@@ -1,0 +1,12 @@
+一.代码注释:
+（1）.$(function () {}),当文档结构完全加载完毕再去执行函数中的代码。
+（2）.setInterval(scrollPrize, 2000)，每隔2秒调用一次scrollPrize函数，这就实现了每隔两秒实现一次上滚效果。
+（3）.function scrollPrize() {}，此方法是实现滚动的核心。
+（4）.var $self = $('.prizesbox ul')，获取ul元素对象。
+（5）.$self.animate({
+  'margin-top': "-60px"
+}, 600, function () {
+  $self.css('margin-top', '0').find("li:lt(1)").appendTo($self);
+})，让ul元素以动画方式设置margin-top值为-60px，也就是向上滚动。
+滚动完成之后，就将第一个li元素追加到ul的尾部，并且重置margin-top为0。
+不断重复，就实现了垂直滚动效果。
